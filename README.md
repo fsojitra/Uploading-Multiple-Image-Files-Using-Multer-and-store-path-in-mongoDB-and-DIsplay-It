@@ -9,7 +9,7 @@ Below noted things you need to install the software
 ```
 - Node.js
 - NPM
-- MongoDB in your System.
+- MongoDB (In your Local System.)
 ```
 
 
@@ -29,4 +29,7 @@ nodemon server.js
 
 Code is Running on
 
-(http://localhost:3000/)
+http://localhost:3000/
+
+
+### Thanks :zap:
