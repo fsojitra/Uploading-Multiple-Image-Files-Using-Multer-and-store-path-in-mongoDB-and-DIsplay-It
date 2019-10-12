@@ -4,14 +4,20 @@ bodyParser = require('body-parser'),
 path = require('path');
 var mongoose = require('mongoose');
 var Detail = require('./models/detail');
+var fs = require('fs');
+var dir = './uploads';
 /*var upload = multer({ dest: 'uploads/' });*/
 mongoose.connect('mongodb://localhost/uploadFiles', { useMongoClient: true });
 
 
 var upload = multer({storage: multer.diskStorage({
 
-  destination: function (req, file, callback) 
-  { callback(null, './uploads');},
+  destination: function (req, file, callback) {
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir);
+    }
+    callback(null, './uploads');
+  },
   filename: function (req, file, callback) 
   { callback(null, file.fieldname +'-' + Date.now()+path.extname(file.originalname));}
 
