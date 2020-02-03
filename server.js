@@ -7,7 +7,7 @@ var Detail = require('./models/detail');
 var fs = require('fs');
 var dir = './uploads';
 /*var upload = multer({ dest: 'uploads/' });*/
-mongoose.connect('mongodb://localhost/uploadFiles', { useMongoClient: true });
+mongoose.connect('mongodb://localhost/uploadFiles');
 
 
 var upload = multer({storage: multer.diskStorage({
