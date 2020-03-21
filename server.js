@@ -77,8 +77,8 @@ app.post('/', upload.any(), function(req,res){
 
         unique_id:c,
         Name: req.body.title,
-        image1:req.files[0].filename,
-        image2:req.files[1].filename,
+        image1: req.files[0] && req.files[0].filename ? req.files[0].filename : '',
+        image2: req.files[1] && req.files[1].filename ? req.files[1].filename : '',
       });
 
       detail.save(function(err, Person){
