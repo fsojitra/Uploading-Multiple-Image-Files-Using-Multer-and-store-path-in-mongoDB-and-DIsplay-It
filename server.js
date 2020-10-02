@@ -41,8 +41,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.static('uploads'));
 
-app.get('/', function(req, res){
-  Detail.find({}, function(err,data){
+app.get('/', (req, res) =>{
+  Detail.find({}, (err,data)=>{
     if(err){
       console.log(err);
     }else{
@@ -52,7 +52,7 @@ app.get('/', function(req, res){
   
 });
 
-app.post('/', upload.any(), function(req,res){
+app.post('/', upload.any(), (req,res)=>{
   
   // console.log("req.body"); //form fields
   // console.log(req.body);
@@ -63,7 +63,7 @@ app.post('/', upload.any(), function(req,res){
     res.json({success: false});
   } else {    
     var c;
-    Detail.findOne({},function(err,data){
+    Detail.findOne({},(err,data)=>{
       // console.log("into detail");
 
       if (data) {
@@ -80,7 +80,7 @@ app.post('/', upload.any(), function(req,res){
         image2: req.files[1] && req.files[1].filename ? req.files[1].filename : '',
       });
 
-      detail.save(function(err, Person){
+      detail.save((err, Person)=>{
         if(err)
           console.log(err);
         else
@@ -93,9 +93,9 @@ app.post('/', upload.any(), function(req,res){
   }
 });
 
-app.post('/delete',function(req,res){
+app.post('/delete',(req,res)=>{
 
-   Detail.findByIdAndRemove(req.body.prodId,function(err, data) {
+   Detail.findByIdAndRemove(req.body.prodId, (err, data) => {
 
     console.log(data);
 
@@ -104,4 +104,4 @@ app.post('/delete',function(req,res){
 });
 
 var port = 2000;
-app.listen( port, function(){ console.log('listening on port '+port); } );
+app.listen( port, () =>{ console.log('listening on port '+port); } );
