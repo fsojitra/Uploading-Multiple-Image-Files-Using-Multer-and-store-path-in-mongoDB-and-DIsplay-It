@@ -54,20 +54,19 @@ app.get('/', function(req, res){
 
 app.post('/', upload.any(), function(req,res){
   
-  console.log("req.body"); //form fields
-  console.log(req.body);
-  console.log("req.file");
-  console.log(req.files); //form files
+  // console.log("req.body"); //form fields
+  // console.log(req.body);
+  // console.log("req.file");
+  // console.log(req.files); //form files
   
   if(!req.body && !req.files){
     res.json({success: false});
   } else {    
     var c;
     Detail.findOne({},function(err,data){
-      console.log("into detail");
+      // console.log("into detail");
 
       if (data) {
-        console.log("if");
         c = data.unique_id + 1;
       }else{
         c=1;
