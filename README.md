@@ -21,6 +21,15 @@ Clone or download this repository
 npm install
 ```
 
+### Important Modules
+```
+~$ sudo npm install -y express
+~$ sudo npm install -y ejs
+~$ sudo npm install -y mongoose
+~$ sudo npm install -y multer
+~$ sudo npm install nodemon -dev //as devDependencies
+```
+
 ### Run
 
 ```
